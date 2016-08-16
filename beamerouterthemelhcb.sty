@@ -1,19 +1,37 @@
 \mode<presentation>
 
+\setbeamercolor{section in head/foot}{bg=lhcbLightBlue, fg=lhcbRed}
+\setbeamercolor{mini frame}{bg=lhcbLightBlue, fg=lhcbRed}
+\setbeamertemplate{section in head/foot shaded}[default][0]
+\setbeamertemplate{mini frame in other section}[default][0]
+\setbeamertemplate{mini frame in other subsection}[default][0]
+
+%\setbeamertemplate{mini frame}[box]
+%\setbeamertemplate{mini frame in current subsection}[box]
+
+\beamer@compresstrue
+
 % Frame title
 \defbeamertemplate*{frametitle}{texsx}[1][]
 {%
     \vspace{-.05cm}
   \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
   \begin{tikzpicture}
-  \useasboundingbox(0,0) rectangle(\the\paperwidth,1.2);
-      \fill[lhcbBlue] (0,0) rectangle(\the\paperwidth,1.2);
+  \useasboundingbox(0,0) rectangle (\the\paperwidth,1.2);
+      \fill[lhcbBlue] (0,0) rectangle (.7\paperwidth,1.2);
+      \fill[lhcbLightBlue] (.7\paperwidth,0) rectangle(\paperwidth,1.2);
+      %\fill[lhcbRed] (.7\paperwidth,.6-.02) rectangle (\paperwidth,.6+.02);
+      {\node[anchor=south west, lhcbLightBlue,font=\large] at (0,0){\insertframetitle};}
    \ifx\insertframesubtitle\@empty%
-      {\node[anchor=west, lhcbLightBlue,font=\large] at (.2,0.61){\insertframetitle};}
+      {}
       \else%
-      {\node[anchor=west, lhcbLightBlue,font=\large] at (.2,0.81){\insertframetitle};%
-       \node[anchor=west, lhcbLightBlue,font=\small] at (.2,0.41){\insertframesubtitle};}%
+      {
+       \node[anchor=north west, lhcbBlue, font=\small] at (0,0){\insertframesubtitle};}%
       \fi
+           \node [lhcbRed, below left] at (\paperwidth-.2cm,1.2) {\large \insertsection};
+           \node [lhcbBlue, above left] at (\paperwidth-.2cm,0) {\small \insertsubsection};
+           
+           \node [lhcbLightBlue, anchor=north west, inner xsep=0, inner ysep=2] at (0, 1.2) {\tiny\insertnavigation{.7\paperwidth}};
   \end{tikzpicture}
   \end{beamercolorbox}
 }
