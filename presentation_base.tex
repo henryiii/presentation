@@ -1,0 +1,93 @@
+% !TeX program = lualatex
+% !TeX encoding = utf8
+
+\documentclass{beamer}
+
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+
+\mode<presentation> {
+    \usetheme{lhcb}
+}
+
+
+%\beamertemplatenavigationsymbolsempty
+
+%\setbeamerfont{page number in head/foot}{size=\large}
+%\setbeamertemplate{footline}[frame number]
+
+%\setbeamersize{text margin left=1em, text margin right=1em}
+
+\usepackage{appendixnumberbeamer}
+
+\usepackage{graphicx}
+\usepackage{units}
+\usepackage{booktabs}
+\usepackage{ulem}
+\usepackage{comment}
+\usepackage{tikz}
+
+\newcommand{\backupbegin}{
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+	\setcounter{framenumber}{\value{finalframe}}
+}
+
+\graphicspath{{./images/}}
+
+\errorcontextlines 10000
+
+\title{Basic presentation}
+
+\author[H. Schreiner]{Henry Schreiner}
+\institute[LHCb]
+{
+	\begin{minipage}{3cm}
+		\raggedleft
+		LHCb \\
+		University of Cincinnati 
+	\end{minipage} \vspace{.25cm}
+	\begin{minipage}{2cm}
+		\includegraphics[width=\linewidth]{lhcb.jpg}
+	\end{minipage} \\
+    \medskip
+    \textit{henry.schreiner@cern.ch}
+}
+\date{\today}
+
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Intro}
+\subsection{Intro}
+\begin{frame}{Intro}
+
+  \begin{block}{Details}
+    \begin{itemize}
+    	\item More details
+   \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+
+\backupbegin
+\section{Backup}
+
+\subsection{Backup slides}
+\begin{frame}{Backup slide}
+\end{frame}
+
+\begin{frame}{Code}
+	Code and presentations (as CI artifacts) available at: \url{https://gitlab.cern.ch/hschrein/lhcb_presentation}
+\end{frame}
+
+\backupend
+
+\end{document}

@@ -1,0 +1,44 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \ifnum\thepage<2\relax%
+      \fill[color=lhcbLightBlue] (0,1) rectangle (\the\paperwidth,\the\paperheight);
+      \fill[color=lhcbBlue] (0,0) rectangle(\the\paperwidth,1);
+      \node at (11,.9972) {\includegraphics[height=2cm]{LHCb_logo.pdf}};
+      \node at (1.6,1.143) {\includegraphics[height=1.3cm]{UC_logo_bb.pdf}};
+  \fi
+  \ifnum\thepage>1\relax%
+    \fill[color=lhcbLightBlue] (0,0) rectangle(\the\paperwidth,.8);
+    \fill[color=lhcbBlue] (0,0) rectangle(\the\paperwidth,.5);
+    \node at (12,.9972/2) {\includegraphics[height=1cm]{LHCb_logo.pdf}};
+    \node at (1,1.143/2) {\includegraphics[height=.75cm]{UC_logo_bb.pdf}};
+      \node [lhcbLightBlue] at (10.5,.25) {\insertframenumber/\inserttotalframenumber};
+    \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{texsx}[1][]
+{ 
+    \begin{beamercolorbox}[wd=12cm,center,#1]{title page header}
+      \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip0.3cm%
+    \begin{tikzpicture}
+        \path [fill=lhcbRed] (0,0) rectangle (10.5cm,.03cm);
+    \end{tikzpicture}
+    \vskip0.3cm%
+    \begin{beamercolorbox}[wd=12cm,center,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.2cm%
+    \begin{beamercolorbox}[wd=12cm,center,#1]{date}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+}
+
+\mode
+<all>
+
