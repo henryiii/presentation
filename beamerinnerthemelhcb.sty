@@ -6,14 +6,14 @@
   \ifnum\thepage<2\relax%
       \fill[color=lhcbLightBlue] (0,1) rectangle (\the\paperwidth,\the\paperheight);
       \fill[color=lhcbBlue] (0,0) rectangle(\the\paperwidth,1);
-      \node [left] at (\paperwidth,.9972) {\includegraphics[height=2cm]{LHCb_logo.pdf}};
-      \node [right] at (0,1.143) {\includegraphics[height=1.3cm]{UC_logo_bb.pdf}};
+      \node [left] at (\paperwidth,.9972) {\includegraphics[height=2cm]{logos/LHCb_logo.pdf}};
+      \node [right] at (0,1.143) {\includegraphics[height=1.3cm]{logos/UC_logo_bb.pdf}};
   \fi
   \ifnum\thepage>1\relax%
     \fill[color=lhcbLightBlue] (0,0) rectangle(\the\paperwidth,.8);
     \fill[color=lhcbBlue] (0,0) rectangle(\the\paperwidth,.5);
-    \node [left] at (\paperwidth,.9972/2) {\includegraphics[height=1cm]{LHCb_logo.pdf}};
-    \node at (1,1.143/2) {\includegraphics[height=.75cm]{UC_logo_bb.pdf}};
+    \node [left] at (\paperwidth,.9972/2) {\includegraphics[height=1cm]{logos/LHCb_logo.pdf}};
+    \node at (1,1.143/2) {\includegraphics[height=.75cm]{logos/UC_logo_bb.pdf}};
       \node [lhcbLightBlue, left] at (\paperwidth-1.8cm,.23) {\footnotesize\insertframenumber/\inserttotalframenumber};
      \node [lhcbLightBlue, right] at (2.5,.23) {\footnotesize\insertauthor};
      \node [lhcbBlue] at (.5\paperwidth,.63) {\tiny\inserttitle};
