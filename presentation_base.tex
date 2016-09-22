@@ -6,10 +6,11 @@
 \usepackage{amsmath}
 \usepackage[T1]{fontenc}
 
+% This is the "normal" theme based install
 \mode<presentation> {
     \usetheme{lhcb}
 }
-
+% The other method: \usepackage{lhcb_presentation/package}
 
 %\beamertemplatenavigationsymbolsempty
 
@@ -35,6 +36,7 @@
 	\setcounter{framenumber}{\value{finalframe}}
 }
 
+% This should be appendtographicspath if using package method
 \graphicspath{{./images/}}
 
 \errorcontextlines 10000
