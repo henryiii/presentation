@@ -1,9 +1,10 @@
 compile_pdf:
+  before_script:
+    - git submodule update --init --recursive
   image: tianon/latex
   script:
-    - cd presentation
     - latexmk -pdf default.tex
   artifacts:
     paths:
-      - presentation/default.pdf
+      - default.pdf
 
