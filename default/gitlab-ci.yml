@@ -1,0 +1,9 @@
+compile_pdf:
+  image: tianon/latex
+  script:
+    - cd presentation
+    - latexmk -pdf default.tex
+  artifacts:
+    paths:
+      - presentation/default.pdf
+
