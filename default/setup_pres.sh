@@ -25,9 +25,12 @@ git add lhcb.beamer
 cp $def_dir/presentation_template.mkd "$1.mkd"
 git add "$1.mkd"
 
+cp $def_dir/makeslides.py makeslides.py
+git add makeslides.py
+
 sed s/default/$1/g < $def_dir/gitlab-ci.yml > .gitlab-ci.yml
 
 git commit -m "Initial commit of lhcb-presentation"
 
-echo "Add .gitlab-ci.yml to get automatic builds on gitlab"
+echo "Add .gitlab-ci.yml to get automatic tex builds on gitlab"
 echo "Add a remote and push to setup your repository"
