@@ -19,13 +19,13 @@ cp $def_dir/gitignore .gitignore
 echo "$1.pdf" >> .gitignore
 git add .gitignore
 
-cp $def_dir/lhcb.beamer lhcb.beamer
+ln -s $def_dir/lhcb.beamer lhcb.beamer
 git add lhcb.beamer
 
 cp $def_dir/presentation_template.mkd "$1.mkd"
 git add "$1.mkd"
 
-cp $def_dir/makeslides.py makeslides.py
+ln -s $def_dir/makeslides.py makeslides.py
 git add makeslides.py
 
 sed s/default/$1/g < $def_dir/gitlab-ci.yml > .gitlab-ci.yml
