@@ -1,3 +1,5 @@
+# Source this script with an argument for the name of the presentation (folder) to make
+
 def_dir="lhcb_presentation/default"
 
 mkdir $1
