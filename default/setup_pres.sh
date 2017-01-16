@@ -16,9 +16,8 @@ cp $def_dir/presentation_temlpate.tex "$1.tex"
 git add "$1.tex"
 
 cp $def_dir/gitignore .gitignore
-git add .gitignore
-
 echo "$1.pdf" >> .gitignore
+git add .gitignore
 
 sed s/default/$1/g < $def_dir/gitlab-ci.yml > .gitlab-ci.yml
 
