@@ -12,12 +12,18 @@ cd $1
 git init
 git submodule add ssh://git@gitlab.cern.ch:7999/hschrein/lhcb_presentation.git
 
-cp $def_dir/presentation_temlpate.tex "$1.tex"
+cp $def_dir/presentation_template.tex "$1.tex"
 git add "$1.tex"
 
 cp $def_dir/gitignore .gitignore
 echo "$1.pdf" >> .gitignore
 git add .gitignore
+
+cp $def_dir/lhcb.beamer lhcb.beamer
+git add lhcb.beamer
+
+cp $def_dir/presentation_template.mkd "$1.mkd"
+git add "$1.mkd"
 
 sed s/default/$1/g < $def_dir/gitlab-ci.yml > .gitlab-ci.yml
 
