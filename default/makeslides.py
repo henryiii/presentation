@@ -3,6 +3,19 @@
 from __future__ import print_function
 from plumbum import local, cli, FG, colors
 
+class Doc(object):
+    def __init__(self, filename, ext):
+        self.filename = filename
+        self.input = filename.with_suffix(ext)
+        self.output = filename.with_suffix('.pdf')
+        self.name = filename.with_suffix('').basename
+    def exists(self):
+        return self.input.exists()
+    def needs_update(self):
+        if not self.output.exists():
+            return True
+        return self.input.stat().st_mtime > self.output.stat().st_mtime
+
 class MakeSlides(cli.Application):
     'Make slides from all available files in current directory'
 
@@ -11,21 +24,19 @@ class MakeSlides(cli.Application):
         if not filenames:
             filenames = local.cwd // ('*.mkd', '*.tex')
 
-        names = {name.with_suffix('') for name in filenames}
-
-        for name in names:
-            fname = name.with_suffix('.mkd')
-            if fname.exists():
-                colors.info.print("Making", fname.basename, "with pandoc")
+        for fname in filenames:
+            document = Doc(fname, '.mkd')
+            if document.exists() and document.needs_update():
+                colors.info.print("Making", document.name, "with pandoc")
                 local['pandoc']['-t', 'beamer',
                         '--template=lhcb.beamer',
-                        fname,
-                        '-o', name.with_suffix('.pdf')] & FG
+                        document.input,
+                        '-o', document.output] & FG
             else:
-                fname = name.with_suffix('.tex')
-                colors.info.print("Making", fname.basename, "with latex")
-                if fname.exists():
-                    local['latexmk']['-pdf', fname] & FG
+                document = Doc(fname, '.tex')
+                if document.exists() and document.needs_update():
+                    colors.info.print("Making", document.name, "with latex")
+                    local['latexmk']['-pdf', document.input] & FG
 
         generated = ('*.aux', '*.bcf', '*.fls', '*.idx', '*.ind', '*.lof', '*.lot',
                 '*.out', '*.toc', '*.blg', '*.ilg', '*.log',
