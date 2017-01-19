@@ -2,6 +2,7 @@
 
 from __future__ import print_function
 from plumbum import local, cli, FG, colors
+from plumbum.path.utils import gui_open
 
 class Doc(object):
     def __init__(self, filename, ext):
@@ -15,6 +16,8 @@ class Doc(object):
         if not self.output.exists():
             return True
         return self.input.stat().st_mtime > self.output.stat().st_mtime
+    def open(self):
+        gui_open(self.output)
 
 class MakeSlides(cli.Application):
     'Make slides from all available files in current directory'
@@ -32,11 +35,13 @@ class MakeSlides(cli.Application):
                         '--template=lhcb.beamer',
                         document.input,
                         '-o', document.output] & FG
+                document.open()
             else:
                 document = Doc(fname, '.tex')
                 if document.exists() and document.needs_update():
                     colors.info.print("Making", document.name, "with latex")
                     local['latexmk']['-pdf', document.input] & FG
+                    document.open()
 
         generated = ('*.aux', '*.bcf', '*.fls', '*.idx', '*.ind', '*.lof', '*.lot',
                 '*.out', '*.toc', '*.blg', '*.ilg', '*.log',
@@ -50,9 +55,6 @@ class MakeSlides(cli.Application):
             if files:
                 for f in files:
                     f.delete()
-
-
-
 
 if __name__ == '__main__':
     MakeSlides()
