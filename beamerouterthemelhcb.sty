@@ -14,7 +14,7 @@
 % Frame title
 \defbeamertemplate*{frametitle}{texsx}[1][]
 {%
-    \vspace{-.05cm}
+  \vspace{-.05cm}
   \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
   \begin{tikzpicture}
   \useasboundingbox(0,0) rectangle (\the\paperwidth,1.2);
@@ -34,11 +34,12 @@
            \node [lhcbLightBlue, anchor=north west, inner xsep=0, inner ysep=2] at (0, 1.2) {\tiny\insertnavigation{.7\paperwidth}};
   \end{tikzpicture}
   \end{beamercolorbox}
+  \vspace{-.1in}%
 }
 
 \defbeamertemplate*{footline}{texsx}[1][]{%
 \leavevmode%
-\vspace{1in}%
+\vspace{.3in}%
 }
 
 \mode<all>
