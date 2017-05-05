@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-from plumbum import local, cli, FG, colors
+from plumbum import local, cli, FG, colors, ProcessExecutionError
 from plumbum.path.utils import gui_open
 
 class Doc(object):
@@ -17,7 +17,10 @@ class Doc(object):
             return True
         return self.input.stat().st_mtime > self.output.stat().st_mtime
     def open(self):
-        gui_open(self.output)
+        try:
+            gui_open(self.output)
+        except ProcessExecutionError:
+            pass
 
 class MakeSlides(cli.Application):
     'Make slides from all available files in current directory'
