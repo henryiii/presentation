@@ -2,6 +2,7 @@
 title: Presentation Template
 author: Me Me
 date: \today
+colorlinks: true
 ---
 
 
@@ -27,4 +28,13 @@ Note that this comment will cause the --slide-level option to be unneeded if lef
 
 ### A box on a new page
 
+
+\backupbegin
+
+# Backup 
+
+## 
+This is a backup slide
+
+\backupend
 
