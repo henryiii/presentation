@@ -25,13 +25,13 @@ class MakeSlides(cli.Application):
     @cli.positional(cli.ExistingFile)
     def main(self, *filenames):
         if not filenames:
-            filenames = local.cwd // ('*.mkd', '*.tex')
+            filenames = local.cwd // ('*.md', '*.tex')
             auto = True
         else:
             auto = False
 
         for fname in filenames:
-            document = Doc(fname, '.mkd')
+            document = Doc(fname, '.md')
             if document.exists() and (document.needs_update() or not auto):
                 colors.info.print("Making", document.name, "with pandoc")
                 local['pandoc']['-t', 'beamer',

@@ -22,8 +22,8 @@ git add .gitignore
 ln -s $def_dir/lhcb.beamer lhcb.beamer
 git add lhcb.beamer
 
-cp $def_dir/presentation_template.mkd "$1.mkd"
-git add "$1.mkd"
+cp $def_dir/presentation_template.md "$1.md"
+git add "$1.md"
 
 ln -s $def_dir/makeslides.py makeslides.py
 git add makeslides.py
