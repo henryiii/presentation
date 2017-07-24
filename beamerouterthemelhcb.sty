@@ -12,6 +12,9 @@
 
 \beamer@compresstrue
 
+\providecommand{\logomini}{\node at (1,1.143/2) {\includegraphics[height=.75cm]{logos/UC_logo_bb.pdf}};}
+\providecommand{\logowidth}{2.5}
+
 % Frame title
 \setbeamertemplate{frametitle}{%
     \nointerlineskip%
@@ -41,10 +44,10 @@
             \path [use as bounding box] (0,0) rectangle (\paperwidth, .8cm);
             \fill[color=lhcbBlue] (0,0) rectangle(\paperwidth,.5);
             \node [left] at (\paperwidth,.9972/2) {\includegraphics[height=1cm]{logos/LHCb_logo.pdf}};
-            \node at (1,1.143/2) {\includegraphics[height=.75cm]{logos/UC_logo_bb.pdf}};
+            \logomini
             \node [lhcbLightBlue, left] at (\paperwidth-1.8cm,.23) {\footnotesize\insertframenumber/\inserttotalframenumber};
-            \node [lhcbLightBlue, right] at (2.5,.23) {\footnotesize\insertauthor};
-            \node [lhcbBlue] at (.5\paperwidth,.63) {\tiny\inserttitle};
+            \node [lhcbLightBlue, right] at (\logowidth,.23) {\footnotesize\insertshortauthor};
+            \node [lhcbBlue] at (.5\paperwidth,.63) {\tiny\insertshorttitle};
             \node [lhcbLightBlue, left] at (\paperwidth-2.8cm,.23) {\footnotesize\insertdate};
         \end{tikzpicture}
     \end{beamercolorbox}

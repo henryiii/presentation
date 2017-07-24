@@ -1,5 +1,7 @@
 \mode<presentation>
 
+\providecommand{\logomax}{\node [right] at (0,1.143) {\includegraphics[height=1.3cm]{logos/UC_logo_bb.pdf}};}
+
 \setbeamertemplate{background}{%
   \ifnum\thepage<2\relax%
   \begin{tikzpicture}
@@ -7,7 +9,7 @@
   \fill[color=lhcbLightBlue] (0,1) rectangle (\the\paperwidth,\the\paperheight);
   \fill[color=lhcbBlue] (0,0) rectangle(\the\paperwidth,1);
   \node [left] at (\paperwidth,.9972) {\includegraphics[height=2cm]{logos/LHCb_logo.pdf}};
-  \node [right] at (0,1.143) {\includegraphics[height=1.3cm]{logos/UC_logo_bb.pdf}};
+  \logomax
   \end{tikzpicture}
   \fi%
 }
@@ -20,14 +22,19 @@
     \vspace{0.3cm}%
     \begin{tikzpicture}
         \path [fill=lhcbRed] (0,0) rectangle (\textwidth,.03cm);
-    \end{tikzpicture}%
+    \end{tikzpicture}\\%
     \vspace{0.3cm}%
     \begin{beamercolorbox}[wd=\paperwidth,center,#1]{author}
       \usebeamerfont{author}\insertauthor%
     \end{beamercolorbox}
-    \vspace{0.2cm}%
+    \vspace{0.6cm}%
     \begin{beamercolorbox}[wd=\paperwidth,center,#1]{date}
-      \usebeamerfont{author}\insertdate%
+      \usebeamerfont{date}\insertdate%
+    \end{beamercolorbox}
+    \vspace{0.3cm}%
+    \begin{beamercolorbox}[wd=.85\paperwidth,center,#1]{institute}
+      \raggedleft%
+      \usebeamerfont{institute}\insertinstitute%
     \end{beamercolorbox}
 }
 
