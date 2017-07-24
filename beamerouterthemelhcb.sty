@@ -2,6 +2,7 @@
 
 \setbeamercolor{section in head/foot}{bg=lhcbLightBlue, fg=lhcbRed}
 \setbeamercolor{mini frame}{bg=lhcbLightBlue, fg=lhcbRed}
+\setbeamercolor{framefooter}{bg=lhcbLightBlue, fg=lhcbBlue}
 \setbeamertemplate{section in head/foot shaded}[default][0]
 \setbeamertemplate{mini frame in other section}[default][0]
 \setbeamertemplate{mini frame in other subsection}[default][0]
@@ -12,34 +13,42 @@
 \beamer@compresstrue
 
 % Frame title
-\defbeamertemplate*{frametitle}{texsx}[1][]
-{%
-  \vspace{-.05cm}
-  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
-  \begin{tikzpicture}
-  \useasboundingbox(0,0) rectangle (\the\paperwidth,1.2);
-      \fill[lhcbBlue] (0,0) rectangle (.7\paperwidth,1.2);
-      \fill[lhcbLightBlue] (.7\paperwidth,0) rectangle(\paperwidth,1.2);
-      %\fill[lhcbRed] (.7\paperwidth,.6-.02) rectangle (\paperwidth,.6+.02);
-      {\node[anchor=south west, lhcbLightBlue,font=\large] at (0,0){\insertframetitle};}
-   \ifx\insertframesubtitle\@empty%
-      {}
-      \else%
-      {
-       \node[anchor=north west, lhcbBlue, font=\small] at (0,0){\insertframesubtitle};}%
-      \fi
-           \node [lhcbRed, below left] at (\paperwidth-.2cm,1.2) {\large \insertsection};
-           \node [lhcbBlue, above left] at (\paperwidth-.2cm,0) {\small \insertsubsection};
-           
-           \node [lhcbLightBlue, anchor=north west, inner xsep=0, inner ysep=2] at (0, 1.2) {\tiny\insertnavigation{.7\paperwidth}};
-  \end{tikzpicture}
-  \end{beamercolorbox}
-  \vspace{-.1in}%
+\setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
+        \begin{tikzpicture}
+            \useasboundingbox(0,0) rectangle (\the\paperwidth,1.2);
+            \fill[lhcbBlue] (0,0) rectangle (.7\paperwidth,1.2);
+            \fill[lhcbLightBlue] (.7\paperwidth,0) rectangle(\paperwidth,1.2);
+            \node[anchor=south west, lhcbLightBlue,font=\large] at (0,0){\insertframetitle};
+            \ifx\insertframesubtitle\@empty%
+            \else%
+            \node[anchor=north west, lhcbBlue, font=\small] at (0,0){\insertframesubtitle};
+            \fi%
+            \node [lhcbRed, below left] at (\paperwidth-.2cm,1.2) {\large \insertsection};
+            \node [lhcbBlue, above left] at (\paperwidth-.2cm,0) {\small \insertsubsection};
+            \node [lhcbLightBlue, anchor=north west, inner xsep=0, inner ysep=2] at (0, 1.2) {\tiny\insertnavigation{.7\paperwidth}};
+        \end{tikzpicture}
+    \end{beamercolorbox}
 }
 
-\defbeamertemplate*{footline}{texsx}[1][]{%
-\leavevmode%
-\vspace{.3in}%
+\setbeamertemplate{footline}{%
+    \ifnum \insertpagenumber=1
+    \vspace{.8cm}
+    \else
+    \begin{beamercolorbox}[wd=\paperwidth, sep=0px,ht=.8cm]{framefooter}
+        \begin{tikzpicture}%
+            \path [use as bounding box] (0,0) rectangle (\paperwidth, .8cm);
+            \fill[color=lhcbBlue] (0,0) rectangle(\paperwidth,.5);
+            \node [left] at (\paperwidth,.9972/2) {\includegraphics[height=1cm]{logos/LHCb_logo.pdf}};
+            \node at (1,1.143/2) {\includegraphics[height=.75cm]{logos/UC_logo_bb.pdf}};
+            \node [lhcbLightBlue, left] at (\paperwidth-1.8cm,.23) {\footnotesize\insertframenumber/\inserttotalframenumber};
+            \node [lhcbLightBlue, right] at (2.5,.23) {\footnotesize\insertauthor};
+            \node [lhcbBlue] at (.5\paperwidth,.63) {\tiny\inserttitle};
+            \node [lhcbLightBlue, left] at (\paperwidth-2.8cm,.23) {\footnotesize\insertdate};
+        \end{tikzpicture}
+    \end{beamercolorbox}
+    \fi
 }
 
 \mode<all>
