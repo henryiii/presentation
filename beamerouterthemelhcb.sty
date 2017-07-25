@@ -15,24 +15,42 @@
 \providecommand{\logomini}{\node at (1,1.143/2) {\includegraphics[height=.75cm]{logos/UC_logo_bb.pdf}};}
 \providecommand{\logowidth}{2.5}
 
+\newif\iflhcbloose
+
 % Frame title
 \setbeamertemplate{frametitle}{%
     \nointerlineskip%
-    \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
-        \begin{tikzpicture}
-            \useasboundingbox(0,0) rectangle (\the\paperwidth,1.2);
-            \fill[lhcbBlue] (0,0) rectangle (.7\paperwidth,1.2);
-            \fill[lhcbLightBlue] (.7\paperwidth,0) rectangle(\paperwidth,1.2);
-            \node[anchor=south west, lhcbLightBlue,font=\large] at (0,0){\insertframetitle};
-            \ifx\insertframesubtitle\@empty%
-            \else%
-            \node[anchor=north west, lhcbBlue, font=\small] at (0,0){\insertframesubtitle};
-            \fi%
-            \node [lhcbRed, below left] at (\paperwidth-.2cm,1.2) {\large \insertsection};
-            \node [lhcbBlue, above left] at (\paperwidth-.2cm,0) {\small \insertsubsection};
-            \node [lhcbLightBlue, anchor=north west, inner xsep=0, inner ysep=2] at (0, 1.2) {\tiny\insertnavigation{.7\paperwidth}};
-        \end{tikzpicture}
-    \end{beamercolorbox}
+    \iflhcbloose
+\begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
+	\begin{tikzpicture}
+	\useasboundingbox(0,0) rectangle (\the\paperwidth,1.2);
+	\fill[lhcbBlue] (0,0) rectangle (.7\paperwidth,1.2);
+	\fill[lhcbLightBlue] (.7\paperwidth,0) rectangle(\paperwidth,1.2);
+	\node[anchor=base west, lhcbLightBlue,font=\large] at (0,.2){\strut\insertframetitle};
+	\ifx\insertframesubtitle\@empty%
+	\else%
+	\node[anchor=base east, lhcbLightBlue, font=\footnotesize] at (.7\paperwidth-.2cm,.1) {\strut\insertframesubtitle};
+	\fi%
+	\node [lhcbRed, anchor=base east] at (\paperwidth-.2cm,.7) {\large\strut\insertsection};
+	\node [lhcbBlue, anchor=base east] at (\paperwidth-.2cm,.2) {\small\strut\insertsubsection};
+	\node [lhcbLightBlue, anchor=north west, inner xsep=0, inner ysep=2, font=\tiny] at (0, 1.2) {\insertnavigation{.7\paperwidth}};
+	\end{tikzpicture}
+\end{beamercolorbox}
+    	\else
+    	    \begin{beamercolorbox}[wd=\paperwidth,ht=.8cm]{frametitle}
+    		\begin{tikzpicture}
+    		\useasboundingbox(0,0) rectangle (\the\paperwidth,.8);
+    		\fill[lhcbBlue] (0,0) rectangle (.7\paperwidth,.8);
+    		\fill[lhcbLightBlue] (.7\paperwidth,0) rectangle (\paperwidth,.8);
+    		\node[anchor=base west, lhcbLightBlue,font=\large] at (.1,.2){\strut\insertframetitle};
+    		\ifx\insertframesubtitle\@empty%
+    		\else%
+    		\node[anchor=base east, lhcbLightBlue, font=\footnotesize] at (.7\paperwidth-.2cm,.1) {\strut\insertframesubtitle};
+    		\fi%
+    		\node [lhcbRed, anchor=base east, font=\large] at (\paperwidth-.2cm,.2) {\strut\insertsection};
+    		\end{tikzpicture}
+    	\end{beamercolorbox}
+            \fi
 }
 
 \setbeamertemplate{footline}{%
