@@ -2,7 +2,6 @@
 title: Presentation Template
 author: Me Me
 date: \today
-colorlinks: true
 ---
 
 
@@ -16,6 +15,7 @@ Other useful options:
 classoption: aspectratio=169, smaller
 
 Note that this comment will cause the --slide-level option to be unneeded if left after the correct heading.
+/lhcbhypersetup can be added for auto-fullscreen
 -->
 
 
