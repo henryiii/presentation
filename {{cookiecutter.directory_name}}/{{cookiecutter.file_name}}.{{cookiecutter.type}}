@@ -1,3 +1,4 @@
+{%- if cookiecutter.type == "tex" -%}
 % !TeX program = lualatex
 % !TeX encoding = utf8
 
@@ -15,14 +16,16 @@
 \usepackage{ulem}
 \usepackage{comment}
 
+{% raw %}
 % This should be appendtographicspath if using package method
 \appendtographicspath{{./images/}}
+{% endraw %}
 
 \errorcontextlines 10000
 
-\title{Basic presentation}
+\title{{ '{' }}{{cookiecutter.title}}{{ '}' }}
 
-\author{John Doe\textcolor{lhcbRed}{\inst{1}}}
+\author{{ '{' }}{{cookiecutter.full_name}}\textcolor{lhcbRed}{\inst{1 {{ '}}}' }}
 \institute{\inst{1} University of Cincinnati}
 \date{\today}
 
@@ -62,3 +65,44 @@
 \backupend
 
 \end{document}
+{%- elif cookiecutter.type == "md" -%}
+---
+title: {{cookiecutter.title}}
+author: {{cookiecutter.full_name}}
+date: \today
+---
+
+
+# Title
+
+## Frame title
+
+<!--
+Run with pandoc -t beamer --template=lhcb.beamer {{cookiecutter.file_name}}.md -o {{cookiecutter.file_name}}.pdf
+Other useful options:
+classoption: aspectratio=169, smaller
+
+Note that this comment will cause the --slide-level option to be unneeded if left after the correct heading.
+/lhcbhypersetup can be added for auto-fullscreen
+-->
+
+
+
+### A box
+
+- An item
+
+--------------------------------
+
+### A box on a new page
+
+
+\backupbegin
+
+# Backup 
+
+## 
+This is a backup slide
+
+\backupend
+{%- endif -%}

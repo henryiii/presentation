@@ -1,16 +1,16 @@
-# LHCb Presentation template
+# LHCb Presentation style (with CookieCutter)
 
-This template provides a beamer style file, a beamer module, and a Pandoc template to use for making beautiful presentations simply. It is customized slightly for UC, but that is easy to replace with different branding.
+This template provides a beamer style file, a beamer module, and a [Pandoc] template to use for making beautiful presentations simply. It is customized slightly for UC, but that is easy to replace with different branding.
 
 ## Quick setup
 
-Get going fast with the script available at [this link](https://gitlab.cern.ch/hschrein/lhcb_presentation/raw/master/default/setup_pres.sh). This script should be sourced in the directory you want to setup a new presentation in, and the one argument required is the name of the presentation you want to make. It will make a new git repository, and check this repository out as a submodule. The basics will be prepared for you.
-
-A fast method is to run the following in your terminal, replacing `presentation_name` with your presentation name:
+Get going fast with [cookiecutter]. Just use `pip install cookiecutter` to get the [cookiecutter] application. Then, run:
 
 ```bash
-curl -s https://gitlab.cern.ch/hschrein/lhcb_presentation/raw/master/default/setup_pres.sh | bash /dev/stdin presentation_name
+cookiecutter https://gitlab.cern.ch/hschrein/lhcb_presentation
 ```
+You will be asked a few questions. Make sure you do not add an extension to `file_name`; it will do that for you. You can select either LaTeX (`tex`) or Markdown via [Pandoc] (`md`) as the `type`.
+It will make a new git repository, and check this repository out as a submodule. The basics will be prepared for you.
 
 
 ## Customization
@@ -37,7 +37,10 @@ You can run `./makeslides.py` if you have Plumbum (and Pandoc) installed, and al
 
 ## Gitlab builds
 
-If you use GitLab, you can use the CI system to build your PDFs for you. An example file for builds is included when you make a new presentation, and the output is available at `https://gitlab.cern.ch/<user>/<reponame>/builds/artifacts/master/file/<presentation_name>.pdf?job=compile_pdf`.
+If you use GitLab, you can use the CI system to build your PDFs for you. An example file for builds is included when you make a new presentation, and the output is available at `https://gitlab.cern.ch/<user>/<reponame>/builds/artifacts/master/file/<file_name>.pdf?job=compile_pdf`.
 
-You might need a relative path or HTTPS path in `.gitmodules` to build (see [this page](https://docs.gitlab.com/ce/ci/git_submodules.html)). This is because GitLab CI uses HTTP(S) for all cloning.
+You might need a relative path or HTTPS path in `.gitmodules` to build (see [this page](https://docs.gitlab.com/ce/ci/git_submodules.html)). This is because GitLab CI uses HTTP(S) for all cloning. You'll get that option when the [cookiecutter] runs.
 
+
+[cookiecutter]:   https://cookiecutter.readthedocs.io/en/latest/
+[Pandoc]:         https://pandoc.org

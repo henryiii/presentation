@@ -1,0 +1,8 @@
+{
+    "title": "My Presentation",
+    "directory_name": "{{ cookiecutter.title|lower|replace(' ', '_') }}",
+    "file_name": "{{ cookiecutter.title|lower|replace(' ', '_') }}",
+    "full_name": "John Doe",
+    "type": ["tex", "md"],
+    "remote": "https://gitlab.cern.ch/hschrein/lhcb_presentation.git"
+}
