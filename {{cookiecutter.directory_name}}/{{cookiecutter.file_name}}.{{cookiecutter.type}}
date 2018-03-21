@@ -67,9 +67,12 @@
 \end{document}
 {%- elif cookiecutter.type == "md" -%}
 ---
-title: {{cookiecutter.title}}
+title: |
+  {{cookiecutter.title}}
 author: {{cookiecutter.full_name}}
 date: \today
+fontsize: 10pt
+aspectratio: 169
 ---
 
 
@@ -96,6 +99,22 @@ Note that this comment will cause the --slide-level option to be unneeded if lef
 
 ### A box on a new page
 
+## Example of columns
+
+::: columns
+::: column
+
+### Inside columns 1
+- Wow
+
+:::
+::: column
+
+### Another column 2
+- Really!
+
+:::
+:::
 
 \backupbegin
 
