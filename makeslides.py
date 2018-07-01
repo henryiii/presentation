@@ -44,7 +44,7 @@ class MakeSlides(cli.Application):
                 document.open()
             else:
                 document = Doc(fname, '.tex')
-                if document.exists() and document.needs_update():
+                if document.exists() and (document.needs_update() or not auto):
                     colors.info.print("Making", document.name, "with latex")
                     local['latexmk']['-pdf', document.input] & FG
                     document.open()
