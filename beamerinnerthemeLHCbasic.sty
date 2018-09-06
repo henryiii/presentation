@@ -6,9 +6,9 @@
   \ifnum\thepage<2\relax%
   \begin{tikzpicture}
   \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-  \fill[color=LHCbackground] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+  \fill[color=LHCmainbackground] (0,0) rectangle (\the\paperwidth,\the\paperheight);
   \node [right] at (.5,1.143) {\includegraphics[height=1.3cm]{logos/UC_logo.pdf}};
-  % \node [left] at (\the\paperwidth-.5,1.143) {\includegraphics[height=1.3cm]{logos/CHEP_logo}};
+  \node [left] at (\the\paperwidth-.5,1.6) {\includegraphics[height=2cm]{logos/mpik_logo2}};
   \end{tikzpicture}
   \fi%
 }

@@ -1,29 +1,47 @@
 \ProvidesPackageRCS $Header: lhcb_presentation/beamercolorthemeLHC.sty,v d02a7cf4d8ae 2010/06/17 09:11:41 rivanvx $
 
 \mode<presentation>
-\definecolor{LHCtan}{RGB}{201,159,109}
-\definecolor{LHCdtan}{RGB}{179,72,18}
-\definecolor{LHClblue}{RGB}{24,146,200}
-\definecolor{LHCdgreen}{RGB}{0,68,0}
-\definecolor{LHCdbrown}{RGB}{65,14,23}
-\definecolor{LHCbackground}{RGB}{255, 204, 102}
+
+% Footers
+\definecolor{LHCfooters}{RGB}{0, 51, 102}
+
+% Items
+\definecolor{LHCitems}{RGB}{0, 0, 153}
+
+% Headers
+\definecolor{LHCheaders}{RGB}{0, 102, 204}
+
+% Title box backgrounds
+\definecolor{LHCbackground}{RGB}{102, 102, 255}
+
+% Title box header
+\definecolor{LHCtitlebox}{RGB}{255,255,255}
+
+% First page fill (only one that is used by name in another file)
+\definecolor{LHCmainbackground}{RGB}{102, 102, 255}
+
+% First page titles
+\definecolor{LHCtitles}{RGB}{255, 255, 255}
+
+% Notes on the first page (institute)
+\definecolor{LHCtitlenotes}{RGB}{255, 50, 50}
 
 \setbeamerfont*{title page header}{size=\LARGE}
-\setbeamercolor*{title page header}{fg=LHCdbrown}
-\setbeamercolor*{author}{fg=LHCdbrown}
-\setbeamercolor*{date}{fg=LHCdtan}
-\setbeamercolor*{institute}{fg=LHCdgreen}
+\setbeamercolor*{title page header}{fg=LHCtitles}
+\setbeamercolor*{author}{fg=LHCtitles}
+\setbeamercolor*{date}{fg=LHCtitles}
+\setbeamercolor*{institute}{fg=LHCtitlenotes}
 
-\setbeamercolor*{frametitle}{fg=LHCdbrown}
+\setbeamercolor*{frametitle}{fg=LHCheaders}
 \setbeamercolor{block body}{bg=LHCbackground!10!white}
-\setbeamercolor{block title}{bg=LHCbackground, fg=LHCdbrown}
+\setbeamercolor{block title}{bg=LHCbackground, fg=LHCtitlebox}
 
-\setbeamercolor{itemize item}{fg=LHCdgreen}
+\setbeamercolor{itemize item}{fg=LHCitems}
 \setbeamertemplate{itemize item}[circle]
 
 \setbeamercolor{section in head/foot}{fg=LHClgreen}
-\setbeamercolor{mini frame}{fg=LHCdtan}
-\setbeamercolor{framefooter}{fg=LHCdtan}
+\setbeamercolor{mini frame}{fg=LHCfooters}
+\setbeamercolor{framefooter}{fg=LHCfooters}
 
 \mode
 <all>
