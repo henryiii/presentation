@@ -149,6 +149,7 @@ $if(colorlinks)$
             urlcolor=$if(urlcolor)$$urlcolor$$else$blue!66!black$endif$,    %LHCb
 $else$
             pdfborder={0 0 0},
+            linkcolor=,
 $endif$
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -220,7 +221,7 @@ $if(section-titles)$
   \else
     \let\insertsectionnumber\relax
     \let\sectionname\relax
-    \frame{\sectionpage}
+    \frame{\hypersetup{allcolors=.}\sectionpage}
   \fi
 }
 \AtBeginSubsection{

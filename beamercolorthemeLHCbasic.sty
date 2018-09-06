@@ -21,10 +21,13 @@
 \definecolor{LHCmainbackground}{RGB}{102, 102, 255}
 
 % First page titles
-\definecolor{LHCtitles}{RGB}{255, 255, 255}
+\definecolor{LHCtitles}{RGB}{0, 0, 20}
 
 % Notes on the first page (institute)
-\definecolor{LHCtitlenotes}{RGB}{255, 50, 50}
+\definecolor{LHCtitlenotes}{RGB}{150, 0, 0}
+
+% Section color
+\definecolor{LHCsection}{RGB}{0, 0, 200}
 
 \setbeamerfont*{title page header}{size=\LARGE}
 \setbeamercolor*{title page header}{fg=LHCtitles}
@@ -39,7 +42,9 @@
 \setbeamercolor{itemize item}{fg=LHCitems}
 \setbeamertemplate{itemize item}[circle]
 
-\setbeamercolor{section in head/foot}{fg=LHClgreen}
+\setbeamerfont*{section title}{size=\Huge}
+\setbeamercolor{section title}{fg=LHCsection}
+\setbeamercolor{section in head/foot}{fg=LHCsection}
 \setbeamercolor{mini frame}{fg=LHCfooters}
 \setbeamercolor{framefooter}{fg=LHCfooters}
 
