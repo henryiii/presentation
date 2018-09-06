@@ -1,0 +1,40 @@
+\mode<presentation>
+
+\setbeamertemplate{section in head/foot shaded}[default][0]
+\setbeamertemplate{mini frame in other section}[default][0]
+\setbeamertemplate{mini frame in other subsection}[default][0]
+
+%\setbeamertemplate{mini frame}[box]
+%\setbeamertemplate{mini frame in current subsection}[box]
+
+\beamer@compresstrue
+
+% Frame title
+\setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
+        \hypersetup{allcolors=.}%
+    \hspace{1em}\strut\insertframetitle \insertframesubtitle\hfill \insertsection\hspace{1.4cm}
+    \vspace{.2cm}
+    \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}{%
+    \ifnum \insertpagenumber=1
+        \vspace{.8cm}
+    \else
+        \begin{beamercolorbox}[wd=\paperwidth, sep=0px,ht=.8cm]{framefooter}
+            \hypersetup{allcolors=.}%
+            \footnotesize\hspace{.5em}
+            \insertshorttitle\hfill
+            \insertshortauthor\hfill
+            \insertdate\hfill
+            \insertframenumber/\inserttotalframenumber\hspace{.5em}\vspace{.2ex}
+        \begin{tikzpicture}[overlay, remember picture]
+            % \node (A) at (current page.north east) [below left, inner sep=10pt] {\includegraphics[width=1cm]{logos/CHEP_logo}};
+        \end{tikzpicture}
+        \end{beamercolorbox}
+    \fi
+}
+
+\mode<all>

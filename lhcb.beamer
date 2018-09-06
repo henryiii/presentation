@@ -87,7 +87,11 @@ $if(beamer)$
 $if(theme)$
 \usetheme[$for(themeoptions)$$themeoptions$$sep$,$endfor$]{$theme$}
 $else$
+$if(themepackage)$
+\usepackage{lhcb_presentation/$themepackage$} % Custom
+$else$
 \usepackage{lhcb_presentation/package} % LHCb
+$endif$
 $endif$
 $if(colortheme)$
 \usecolortheme{$colortheme$}

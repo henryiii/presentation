@@ -1,0 +1,46 @@
+\mode<presentation>
+
+\setbeamerfont{title page header}{family=\bfseries}
+
+\setbeamertemplate{background}{%
+  \ifnum\thepage<2\relax%
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \fill[color=LHCbackground] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+  \node [right] at (.5,1.143) {\includegraphics[height=1.3cm]{logos/UC_logo.pdf}};
+  % \node [left] at (\the\paperwidth-.5,1.143) {\includegraphics[height=1.3cm]{logos/CHEP_logo}};
+  \end{tikzpicture}
+  \fi%
+}
+
+% Title page
+\defbeamertemplate*{title page}{texsx}[1][]{%
+    \addtocounter{framenumber}{-1}
+    \begin{beamercolorbox}[wd=\paperwidth,center,#1]{title page header}
+      \usebeamerfont*{title page header}%
+      \inserttitle%
+    \end{beamercolorbox}
+    \vspace{0.3cm}%
+    \begin{beamercolorbox}[wd=\paperwidth,center,#1]{institute}
+      \rule{.8\textwidth}{1px}
+    \end{beamercolorbox}%
+    \vspace{0.3cm}%
+    \begin{beamercolorbox}[wd=\paperwidth,center,#1]{author}
+      \usebeamerfont*{author}%
+      \insertauthor%
+    \end{beamercolorbox}
+    \vspace{0.6cm}%
+    \begin{beamercolorbox}[wd=\paperwidth,center,#1]{date}
+      \usebeamerfont*{date}%
+      \insertdate%
+    \end{beamercolorbox}
+    \vspace{0.3cm}%
+    \begin{beamercolorbox}[wd=.85\paperwidth,center,#1]{institute}
+      \usebeamerfont*{institute}%
+      \insertinstitute%
+    \end{beamercolorbox}
+}
+
+\mode
+<all>
+
