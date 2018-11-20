@@ -39,6 +39,7 @@ class MakeSlides(cli.Application):
                 colors.info.print("Making", document.name, "with pandoc")
                 local['pandoc']['-t', 'beamer',
                         '--template=lhcb.beamer',
+                        '--pdf-engine=lualatex',
                         document.input,
                         '-o', document.output] & FG
                 document.open()
