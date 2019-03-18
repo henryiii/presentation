@@ -4,5 +4,5 @@
     "file_name": "{{ cookiecutter.title|lower|replace(' ', '_') }}",
     "full_name": "John Doe",
     "type": ["tex", "md"],
-    "remote": "../../henryiii/presentation.git"
+    "remote": "https://github.com/henryiii/presentation.git"
 }

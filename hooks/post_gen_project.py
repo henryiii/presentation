@@ -16,6 +16,8 @@ subprocess.check_call(['git', 'reset', '.gitlab-ci.yml'])
 subprocess.check_call(['git', 'commit', '-m', 'Initial commit of {{cookiecutter.directory_name}}'])
 
 print()
+print("If you are on the same server as lhcb_presentation, update your .gitmodule file to use a relative address.")
+print()
 print("Run:")
 print("  git remote add origin <MY_REPO_ADDRESS>")
 print("  git push -u origin master")
