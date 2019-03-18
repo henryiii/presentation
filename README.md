@@ -1,4 +1,4 @@
-# LHCb Presentation style (with CookieCutter)
+# Presentation style (with CookieCutter)
 
 This template provides a beamer style file, a beamer module, and a [Pandoc] template to use for making beautiful presentations simply. It is customized slightly for UC, but that is easy to replace with different branding.
 
@@ -7,7 +7,7 @@ This template provides a beamer style file, a beamer module, and a [Pandoc] temp
 Get going fast with [cookiecutter]. Just use `pip install cookiecutter` to get the [cookiecutter] application. Then, run:
 
 ```bash
-cookiecutter https://gitlab.cern.ch/hschrein/lhcb_presentation
+cookiecutter gh:henryiii/presentation
 ```
 You will be asked a few questions. Make sure you do not add an extension to `file_name`; it will do that for you. You can select either LaTeX (`tex`) or Markdown via [Pandoc] (`md`) as the `type`.
 It will make a new git repository, and check this repository out as a submodule. The basics will be prepared for you.
@@ -15,7 +15,7 @@ It will make a new git repository, and check this repository out as a submodule.
 
 ## Customization
 
-The following is the built-in support for UC branding, you can customize it for your University (use `newcommmand` or `renewcommand` as necessary, in the style files `providecommand` is used):
+The following is the built-in support for branding, you can customize it for your University (use `newcommmand` or `renewcommand` as necessary, in the style files `providecommand` is used):
 
 ```tex
 \newcommand{\logomax}{\node [right] at (0,1.143) {\includegraphics[height=1.3cm]{logos/UC_logo_bb.pdf}};}

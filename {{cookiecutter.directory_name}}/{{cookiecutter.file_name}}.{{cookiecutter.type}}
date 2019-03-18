@@ -9,7 +9,7 @@
 \usepackage[T1]{fontenc}
 
 % This is the "normal" package based install
-\usepackage{lhcb_presentation/package}
+\usepackage{presentation/package}
 
 \usepackage{units}
 \usepackage{booktabs}
@@ -30,7 +30,7 @@
 \date{\today}
 
 % Auto-fullscreen
-\lhcbhypersetup
+\presentationhypersetup
 
 \begin{document}
 
@@ -58,10 +58,6 @@
 \begin{frame}{Backup slide}
 \end{frame}
 
-\begin{frame}{Code}
-	Code and presentations (as CI artifacts) available at: \url{https://gitlab.cern.ch/hschrein/lhcb_presentation}
-\end{frame}
-
 \backupend
 
 \end{document}
@@ -81,12 +77,12 @@ aspectratio: 169
 ## Frame title
 
 <!--
-Run with pandoc -t beamer --template=lhcb.beamer {{cookiecutter.file_name}}.md -o {{cookiecutter.file_name}}.pdf
+Run with pandoc -t beamer --template=presentation.beamer {{cookiecutter.file_name}}.md -o {{cookiecutter.file_name}}.pdf
 Other useful options:
 classoption: aspectratio=169, smaller
 
 Note that this comment will cause the --slide-level option to be unneeded if left after the correct heading.
-/lhcbhypersetup can be added for auto-fullscreen
+/presentationhypersetup can be added for auto-fullscreen
 -->
 
 

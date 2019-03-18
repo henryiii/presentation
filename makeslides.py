@@ -38,7 +38,7 @@ class MakeSlides(cli.Application):
             if document.exists() and (document.needs_update() or not auto):
                 colors.info.print("Making", document.name, "with pandoc")
                 local['pandoc']['-t', 'beamer',
-                        '--template=lhcb.beamer',
+                        '--template=presentation.beamer',
                         '--pdf-engine=lualatex',
                         document.input,
                         '-o', document.output] & FG

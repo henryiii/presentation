@@ -1,11 +1,11 @@
-\ProvidesPackage{lhcb_presentation/package}
+\ProvidesPackage{presentation/package}
 % This is used if you want to include this as a subpackage instead of installing it or working in the same directory
 
 \RequirePackage{tikz}
 \RequirePackage{graphicx}
 
 
-\def\lhcbhypersetup{
+\def\presentationhypersetup{
 \hypersetup{
 pdfdisplaydoctitle = true,
 pdfpagemode = FullScreen,
@@ -14,15 +14,15 @@ pdftoolbar = false
 }
 
 % Settings
-\graphicspath{{./lhcb_presentation/}}
+\graphicspath{{./presentation/}}
 % WARNING: This must be part of the path - use appendtographicspath
 % or include it in your graphics path!
 
 \mode<presentation>
 
-\RequirePackage{lhcb_presentation/beamerinnerthemelhcb}
-\RequirePackage{lhcb_presentation/beamerouterthemelhcb}
-\RequirePackage{lhcb_presentation/beamercolorthemelhcb}
+\RequirePackage{presentation/beamerinnertheme}
+\RequirePackage{presentation/beameroutertheme}
+\RequirePackage{presentation/beamercolortheme}
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=true]  
