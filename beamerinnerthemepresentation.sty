@@ -8,8 +8,8 @@
   \ifnum\thepage<2\relax%
   \begin{tikzpicture}
   \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-  \fill[color=lhcbLightBlue] (0,1) rectangle (\the\paperwidth,\the\paperheight);
-  \fill[color=lhcbBlue] (0,0) rectangle(\the\paperwidth,1);
+  \fill[color=presLight] (0,1) rectangle (\the\paperwidth,\the\paperheight);
+  \fill[color=presDark] (0,0) rectangle(\the\paperwidth,1);
   \node [left] at (\paperwidth,.9972) {\includegraphics[height=2cm]{logos/LHCb_logo.pdf}};
   \logomax
   \end{tikzpicture}
@@ -24,7 +24,7 @@
     \end{beamercolorbox}%
     \vspace{0.3cm}%
     \begin{tikzpicture}
-        \path [fill=lhcbRed] (0,0) rectangle (\textwidth,.03cm);
+        \path [fill=presHighlight] (0,0) rectangle (\textwidth,.03cm);
     \end{tikzpicture}\\%
     \vspace{0.3cm}%
     \begin{beamercolorbox}[wd=\paperwidth,center,#1]{author}

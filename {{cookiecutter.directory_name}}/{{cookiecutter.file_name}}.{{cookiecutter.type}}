@@ -25,7 +25,7 @@
 
 \title{{ '{' }}{{cookiecutter.title}}{{ '}' }}
 
-\author{{ '{' }}{{cookiecutter.full_name}}\textcolor{lhcbRed}{\inst{1 {{ '}}}' }}
+\author{{ '{' }}{{cookiecutter.full_name}}\textcolor{presHighlight}{\inst{1 {{ '}}}' }}
 \institute{\inst{1} University of Cincinnati}
 \date{\today}
 

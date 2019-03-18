@@ -7,7 +7,7 @@ compile_pdf:
     - latexmk -pdf {{cookiecutter.directory_name}}.tex
 
     {%- elif cookiecutter.type == "md" -%}
-    - pandoc -t beamer --template=lhcb.beamer {{cookiecutter.file_name}}.md -o {{cookiecutter.file_name}}.pdf
+    - pandoc -t beamer --template=presentation.beamer {{cookiecutter.file_name}}.md -o {{cookiecutter.file_name}}.pdf
 
     {%- endif -%}
   artifacts:
