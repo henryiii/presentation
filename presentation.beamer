@@ -313,7 +313,11 @@ $if(subtitle)$
 \subtitle{$subtitle$}
 $endif$
 $if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+\author
+$if(shortauthor)$
+[{$for(shortauthor)$$shortauthor$$sep$ \and $endfor$}]
+$endif$
+{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 $if(institute)$
 \providecommand{\institute}[1]{}
