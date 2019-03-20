@@ -1,8 +1,8 @@
 \mode<presentation>
 
-\setbeamercolor{section in head/foot}{bg=presLight, fg=presHighlight}
-\setbeamercolor{mini frame}{bg=presLight, fg=presHighlight}
-\setbeamercolor{framefooter}{bg=presLight, fg=presDark}
+\setbeamercolor{section in head/foot}{fg=presDark}
+\setbeamercolor{mini frame}{fg=presDark2}
+%\setbeamercolor{framefooter}{bg=presLight, fg=presDark}
 \setbeamertemplate{section in head/foot shaded}[default][0]
 \setbeamertemplate{mini frame in other section}[default][0]
 \setbeamertemplate{mini frame in other subsection}[default][0]
@@ -12,8 +12,7 @@
 
 \beamer@compresstrue
 
-\providecommand{\logomini}{\node at (1,1.143/2) {\includegraphics[height=.75cm]{logos/UC_logo_bb.pdf}};}
-\providecommand{\logowidth}{2.5}
+\providecommand{\logomini}{\node [left] at (\paperwidth,.35) {\includegraphics[width=2cm]{logos/Princeton.png}};}
 
 \newif\ifpresentationloose
 
@@ -24,12 +23,10 @@
 \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
 	\begin{tikzpicture}
 	\useasboundingbox(0,0) rectangle (\the\paperwidth,1.2);
-	\fill[presDark] (0,0) rectangle (.7\paperwidth,1.2);
-	\fill[presLight] (.7\paperwidth,0) rectangle(\paperwidth,1.2);
-	\node[anchor=base west, presLight,font=\large] at (0,.2){\strut\insertframetitle};
+	\node[anchor=base west, presDark,font=\large] at (0,.2){\strut\insertframetitle};
 	\ifx\insertframesubtitle\@empty%
 	\else%
-	\node[anchor=base east, presLight, font=\footnotesize] at (.7\paperwidth-.2cm,.1) {\strut\insertframesubtitle};
+	\node[anchor=base east, presDark2, font=\footnotesize] at (.7\paperwidth-.2cm,.1) {\strut\insertframesubtitle};
 	\fi%
 	\node [presHighlight, anchor=base east] at (\paperwidth-.2cm,.7) {\large\strut\insertsection};
 	\node [presDark, anchor=base east] at (\paperwidth-.2cm,.2) {\small\strut\insertsubsection};
@@ -40,12 +37,10 @@
     	    \begin{beamercolorbox}[wd=\paperwidth,ht=.8cm]{frametitle}
     		\begin{tikzpicture}
     		\useasboundingbox(0,0) rectangle (\the\paperwidth,.8);
-    		\fill[presDark] (0,0) rectangle (.7\paperwidth,.8);
-    		\fill[presLight] (.7\paperwidth,0) rectangle (\paperwidth,.8);
-    		\node[anchor=base west, presLight,font=\large] at (.1,.2){\strut\insertframetitle};
+    		\node[anchor=base west, presDark,font=\large] at (.1,.2){\strut\insertframetitle};
     		\ifx\insertframesubtitle\@empty%
     		\else%
-    		\node[anchor=base east, presLight, font=\footnotesize] at (.7\paperwidth-.2cm,.1) {\strut\insertframesubtitle};
+    		\node[anchor=base east, presLight2, font=\footnotesize] at (.7\paperwidth-.2cm,.1) {\strut\insertframesubtitle};
     		\fi%
     		\node [presHighlight, anchor=base east, font=\large] at (\paperwidth-.2cm,.2) {\strut\insertsection};
     		\end{tikzpicture}
@@ -57,16 +52,15 @@
     \ifnum \insertpagenumber=1
     \vspace{.8cm}
     \else
-    \begin{beamercolorbox}[wd=\paperwidth, sep=0px,ht=.8cm]{framefooter}
+    \begin{beamercolorbox}[wd=\paperwidth, sep=0px, ht=.4cm]{framefooter}
         \begin{tikzpicture}%
             \path [use as bounding box] (0,0) rectangle (\paperwidth, .8cm);
-            \fill[color=presDark] (0,0) rectangle(\paperwidth,.5);
-            \node [left] at (\paperwidth,.9972/2) {\includegraphics[height=1cm]{logos/LHCb_logo.pdf}};
+            \node [right] at (0,.9972/2) {\includegraphics[height=1cm, trim=100 540 280 120, clip]{logos/IRIS-HEP.pdf}};
             \logomini
-            \node [presLight, left] at (\paperwidth-1.8cm,.23) {\footnotesize\insertframenumber/\inserttotalframenumber};
-            \node [presLight, right] at (\logowidth,.23) {\footnotesize\insertshortauthor};
-            \node [presDark] at (.5\paperwidth,.65) {\tiny\insertshorttitle};
-            \node [presLight, left] at (\paperwidth-2.8cm,.23) {\footnotesize\insertdate};
+            \node [presLight2, left] at (\paperwidth-2.4cm,.23) {\insertframenumber/\inserttotalframenumber};
+            \node [presDark2, right] at (2,.23) {\insertshortauthor};
+            \node [presDark] at (.5\paperwidth,.23) {\insertshorttitle};
+            \node [presLight, left] at (\paperwidth-3.2cm,.23) {\insertdate};
         \end{tikzpicture}
     \end{beamercolorbox}
     \fi

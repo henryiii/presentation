@@ -1,6 +1,6 @@
 \mode<presentation>
 
-\providecommand{\logomax}{\node [right] at (0,1.143) {\includegraphics[height=1.3cm]{logos/UC_logo_bb.pdf}};}
+\providecommand{\logomax}{\node [right] at (0,1.05) {\includegraphics[height=2cm, trim=100 530 230 120, clip]{logos/Iris-hep-3-regular-complete.pdf}};}
 
 \setbeamerfont{title}{family=\bfseries}
 
@@ -8,9 +8,7 @@
   \ifnum\thepage<2\relax%
   \begin{tikzpicture}
   \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-  \fill[color=presLight] (0,1) rectangle (\the\paperwidth,\the\paperheight);
-  \fill[color=presDark] (0,0) rectangle(\the\paperwidth,1);
-  \node [left] at (\paperwidth,.9972) {\includegraphics[height=2cm]{logos/LHCb_logo.pdf}};
+  \node [left] at (\paperwidth,.47) {\includegraphics[height=.7cm]{logos/Princeton.png}};
   \logomax
   \end{tikzpicture}
   \fi%
@@ -23,10 +21,21 @@
       \usebeamerfont{title}\inserttitle%
     \end{beamercolorbox}%
     \vspace{0.3cm}%
-    \begin{tikzpicture}
-        \path [fill=presHighlight] (0,0) rectangle (\textwidth,.03cm);
+    \begin{tikzpicture}[
+        every path/.style={
+        decorate,
+        decoration={random steps,segment length=.5cm,amplitude=.025cm}
+    }]
+        \path [fill=presDark]
+		     (0,0) -- (0,.08) -- (4,.15) -- (4,.1) -- cycle;
+        \path [fill=presLight2]
+		     (3,0) -- (3,.05) -- (8,-.05) -- (8.2,-.15) -- cycle;
+        \path [fill=presDark2]
+		     (6,0.05) -- (6,.1) -- (12,.15) -- (12,.05) -- cycle;
+        \path [fill=presLight]
+		     (9,-.1) -- (9,-.02) -- (14,.05) -- (14,0) -- cycle;
     \end{tikzpicture}\\%
-    \vspace{0.3cm}%
+    \vspace{0.4cm}%
     \begin{beamercolorbox}[wd=\paperwidth,center,#1]{author}
       \usebeamerfont{author}\insertauthor%
     \end{beamercolorbox}
