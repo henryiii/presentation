@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from __future__ import print_function
 from plumbum import local, cli, FG, colors, ProcessExecutionError
@@ -29,6 +29,7 @@ class MakeSlides(cli.Application):
     def main(self, *filenames):
         if not filenames:
             filenames = local.cwd // ('*.md', '*.tex')
+            filenames = [f for f in filenames if 'README.md' != f.name]
             auto = True
         else:
             auto = False
